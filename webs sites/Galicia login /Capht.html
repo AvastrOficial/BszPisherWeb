@@ -1,0 +1,63 @@
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #ff6600; /* naranja */
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .loader {
+      margin: 30px auto;
+      border: 8px solid #f2f2f2; /* borde claro para contraste */
+      border-top: 8px solid #ff6600; /* naranja */
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      animation: spin 1s linear infinite;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-top: 20px;
+      color: #ff6600;
+    }
+
+    p {
+      font-size: 14px;
+      color: #cc5200; /* naranja más oscuro para el texto secundario */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="loader"></div>
+    <h1>Verificando acceso seguro...</h1>
+    <p>Espere unos segundos. Redirigiendo...</p>
+  </div>
+
+  <script>
+    // Redirigir después de 3 segundos
+    setTimeout(() => {
+      window.location.href = "URL PARA REDIRECIONAR";
+    }, 3000);
+  </script>
