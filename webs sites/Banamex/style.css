@@ -1,0 +1,645 @@
+   * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding: 0;
+    }
+
+    header {
+      background-color: #003b49;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px;
+      width: 100%;
+      font-size: 14px;
+    }
+
+   .container {
+  background-color: #003b49;
+  border-radius: 25px 0 25px 25px; /* top-left, top-right, bottom-right, bottom-left */
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+    .inner-box {
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      color: #003b49;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    h2 {
+      color: #d6001c;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid rgb(0, 30, 34);
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .checkbox input {
+      margin-right: 5px;
+    }
+
+    button {
+      background-color: #003b49;
+      color: white;
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link a {
+      color: #00a3a1;
+      text-decoration: none;
+      font-size: 14px;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .info {
+      font-size: 14px;
+      margin-top: 20px;
+      color: #333;
+    }
+
+
+#logoBrand {
+  height: 24px;
+}
+
+
+
+
+
+.blue-square {
+  width: 80px;
+  height: 40px;
+  background-color: #003b49;
+  border-radius: 0;
+  flex-shrink: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-left: 2px solid white;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+
+}
+
+    .container {
+  padding-top: 0; /* elimina padding arriba del container */
+  margin-top: 0;  /* elimina margen arriba del container */
+}
+
+.card-login__label {
+  position: relative;
+  display: inline-block;
+  background-color: transparent; /* fondo transparente */
+  padding-right: 0;
+  border-top-left-radius: 20px;
+  margin-top: 0;
+  padding-top: 0;
+    position: relative;
+   /* mueve 5px hacia arriba */
+
+}
+
+.card-login__label-content {
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  background-color: transparent; /* fondo blanco dentro del contenido */
+  border-top-left-radius: 20px; /* redondeo coincide */
+}
+
+/* opcional, si .label-wrapper tiene fondo o bordes */
+.label-wrapper {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+
+   
+    
+  #logoBrand {
+    height: 24px;
+  }
+
+  .label-01.text-secondary {
+    font-size: 16px;
+    color: #003746;
+    font-weight: bold;
+  }
+
+  .divider-brand {
+    width: 1px;
+    height: 24px;
+    background-color: #003746;
+    margin: 0 14px;
+  }
+
+  /* Ajustes globales opcionales */
+.label-03 {
+  font-size: 14px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.icon-tooltip {
+  display: inline-block;
+  background-color: rgb(0, 124, 148); /* azul */
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  max-width: 200px;
+background-color: rgb(69, 10, 39); /* guinda */
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* mostrar encima */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 13px;
+
+}
+
+/* flecha del tooltip */
+.tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* abajo del tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #8B0000 transparent transparent transparent;
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+input[type="checkbox"] {
+  accent-color: rgb(255, 27, 68); /* para navegadores modernos */
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  border: 2px solid rgb(0, 55, 70); /* fallback por si no soporta accent-color */
+}
+.text-bold {
+  font-weight: bold;
+}
+
+  .text-link-custom {
+  color: rgb(0, 124, 148);
+  text-decoration: none;
+  font-size: 26px; /* Tamaño de letra más grande (ajustable) */
+  font-weight: bold; /* Opcional: negrita */
+  cursor: pointer;
+}
+
+.text-link-custom:hover {
+  text-decoration: none; /* Asegura que no aparezca subrayado */
+  color: rgb(0, 124, 148); /* Mantiene mismo color al hacer hover */
+}
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 500px; /* o el ancho que prefieras */
+  }
+
+.menu li {
+    cursor: pointer;
+    color: #001e22;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ccc;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.menu li:hover {
+    background-color: #f0f4f5;
+    /* No subrayado */
+}
+
+.menu li .arrow img {
+    width: 16px; /* ajusta tamaño según lo que quieras */
+    height: 16px;
+    margin-left: 10px;
+}
+.fixed-avatar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px; /* Ajusta tamaño si lo deseas */
+  height: auto;
+  z-index: 9999;
+}
+
+.slider-mobile {
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.slider-mobile .item {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.slider-mobile .item:hover {
+  transform: scale(1.01);
+}
+
+
+
+/* Tamaño uniforme para el ícono de flecha */
+.arrow img {
+  width: 40px;         /* iguala el ancho visual si es necesario */
+  height: 40px;        /* mismo alto que se busca */
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+.slider-mobile__title {
+  padding: 12px 10px;
+  background-color: #ffffff;
+}
+
+.slider-mobile__title p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  color: #001e22;
+  line-height: 1.4;
+}
+
+.saber-mas {
+  display: inline-block;
+  margin-top: 6px;
+  color: #0066cc;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+    
+     .slider-dots {
+        text-align: center;
+        padding: 15px 0;
+    }
+    
+    .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background-color: #003746;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .dot.active {
+        background-color: #ff1b44; /* Color azul Banamex */
+    }
+    
+    .saber-mas {
+        color: #0070ba;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0.4; }
+        to { opacity: 1; }
+    }
+    
+    .slider-mobile__image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+  
+    
+    
+    .feature-cards {
+  padding: 20px;
+  background-color: #edf6f7; /* verde oliva pastel */
+  border-radius: 16px;
+  
+      width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  margin-top: 10px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.feature-title {
+  font-size: 22px;
+  color: #003b49;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 320px;              /* ← ancho fijo */
+  height: 90px;              /* ← alto fijo */
+  gap: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.card-text {
+  font-size: 16px;
+  color: #003b49;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* Limita a 3 líneas */
+  -webkit-box-orient: vertical;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-text {
+  margin: 0;
+  font-size: 16px;
+  color: #003b49;
+}
+
+.phone-number {
+  font-weight: bold;
+  color: #0072CE;
+}
+
+ 
+    
+    
+    
+    
+   .app-promo-container {
+  font-family: Calibri, Arial, sans-serif;
+  flex: 1; /* Ocupa el espacio disponible */
+  min-width: 0; /* Evita desbordamientos si hay contenido largo */
+}
+.padre-flex {
+  display: flex;
+}
+
+
+.app-promo-card {
+  background-color: #fff6f3;
+  padding: 16px;
+    border-radius: 20px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.app-promo-header {
+  margin-bottom: 12px;
+}
+
+.app-promo-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background-color: rgb(0, 55, 70); /* Banamex blue */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.app-promo-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.app-promo-headline {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.app-promo-text {
+  font-size: 14px;
+  color: #333333;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.app-promo-cta {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff6f3;
+  text-decoration: none;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+.app-promo-cta:hover {
+  text-decoration: underline;
+}
+    
+    
+    .pie-pagina {
+  background-color: #fff6f3;
+  padding: 30px 20px;
+  font-family: 'Arial', sans-serif;
+  font-size: 13px;
+  color: #001e22;
+  border-top: 1px solid #ccc;
+}
+
+.contenedor-general {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contenedor-logo-pie img.logo-marca-pie {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.contenedor-inferior-pie {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contenido-pie {
+  line-height: 1.5;
+}
+
+.texto-pie {
+  margin: 0;
+  color: #003b49;
+}
+
+.contenedor-servidor {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+}
+
+.contenedor-enlaces {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.enlace-pie {
+  text-decoration: none;
+  color: #005e6a;
+  font-weight: bold;
+}
+
+.enlace-pie:hover {
+  text-decoration: underline;
+}
+
+.izquierda {
+  float: left;
+}
+
+.derecha {
+  float: right;
+}
+
+@media (max-width: 768px) {
+  .contenedor-enlaces {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .izquierda,
+  .derecha {
+    float: none;
+  }
+}
