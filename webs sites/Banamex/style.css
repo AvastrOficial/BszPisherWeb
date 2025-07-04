@@ -1,4 +1,4 @@
-   * {
+ * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -642,4 +642,31 @@ input[type="checkbox"] {
   .derecha {
     float: none;
   }
+}
+
+    .hidden {
+            display: none;
+        }
+
+ .login-pasword-text {
+      color: black;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+     .login-pasword-text2 {
+      color: black;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+      .login-pasword-text3 {
+      color: #00a3a1;
+      font-size: 20px;
+      margin-bottom: 15px;
+        text-decoration: none; 
+  text-decoration-thickness: 2px;
+        
+    }
+    .login-password-container2 {
+  display: flex;
+  gap: 1px; /* espacio entre el texto y el icono ? */
 }
